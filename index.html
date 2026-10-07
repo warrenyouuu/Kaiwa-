@@ -350,7 +350,7 @@ html:not(.js) .story .w { color: var(--antique); }
 .about-tile { position: relative; aspect-ratio: 16 / 9; border-radius: var(--r); border: 1px solid rgb(233 226 220 / calc(0.1 + var(--h) * 0.25)); background: radial-gradient(ellipse 70% 85% at 72% 62%, #6A1636 0%, var(--wine) 42%, #000 82%); }
 .about-tile > * { transform: none; }
 .about-ghost { position: absolute; right: 3%; top: 4%; font: 800 clamp(5rem, 15vw, 14rem)/0.8 var(--font); letter-spacing: -0.06em; color: transparent; -webkit-text-stroke: 1px rgb(234 196 219 / 0.16); pointer-events: none; transform: translateZ(-40px) !important; }
-.about-karen { position: absolute; right: 3%; bottom: 0; height: 88%; width: auto; max-width: none; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16%), linear-gradient(to top, transparent 0, #000 22%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent 0, #000 16%), linear-gradient(to top, transparent 0, #000 22%); mask-composite: intersect; filter: drop-shadow(0 30px 40px rgb(0 0 0 / 0.55)); transform: translateZ(40px) !important; }
+.about-photo { position: absolute; top: 0; right: 0; bottom: 0; width: 60%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 14%; border-radius: 0 var(--r) var(--r) 0; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 38%); mask-image: linear-gradient(to right, transparent 0, #000 38%); transform: translateZ(0) !important; }
 .hello-line { white-space: nowrap; }
 .hello-dots { display: inline-block; width: 0.62em; height: 0.37em; margin-left: 0.06em; vertical-align: 0.5em; line-height: 0; color: var(--rosewood); filter: drop-shadow(0 0 14px rgb(126 40 71 / 0.6)); }
 .hello-dots svg { display: block; width: 100%; height: auto; animation: talk 2.6s ease-in-out infinite; transform-origin: 30% 80%; }
@@ -366,7 +366,7 @@ html:not(.js) .story .w { color: var(--antique); }
 .js .about-wrap.in .cw { opacity: 1; transform: none; }
 @media (max-width: 860px) {
   .about-tile { aspect-ratio: 4 / 5; background: radial-gradient(ellipse 90% 60% at 50% 80%, #6A1636 0%, var(--wine) 45%, #000 85%); }
-  .about-karen { right: 0; left: 0; width: 100%; height: auto; -webkit-mask-image: linear-gradient(to top, transparent 0, #000 20%); mask-image: linear-gradient(to top, transparent 0, #000 20%); }
+  .about-photo { top: auto; left: 0; width: 100%; height: 74%; border-radius: 0 0 var(--r) var(--r); object-position: 50% 22%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%); mask-image: linear-gradient(to bottom, transparent 0, #000 30%); }
   .about-ghost { top: auto; bottom: 46%; right: 4%; }
 }
 .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); margin-top: clamp(40px, 5vw, 72px); }
@@ -715,7 +715,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
       <div class="about-wrap rv-zoom">
         <div class="about-tile tilt" data-amp="0.45">
           <span class="about-ghost" aria-hidden="true">Karen</span>
-          <img class="about-karen" src="img/karen-desk-crop.webp" width="640" height="470" alt="Karen Younes à son bureau, au téléphone" loading="lazy">
+          <img class="about-photo" src="img/karen-portrait.jpg" width="1200" height="1600" alt="Portrait de Karen Younes, lunettes écaille et grande écharpe" loading="lazy">
           <div class="about-over">
             <p class="eyebrow">À propos</p>
             <h2 class="h-sec" id="apropos-t"><span class="hello-line"><span class="cw" style="--i:0">Hello,</span><span class="hello-dots" aria-hidden="true"><svg viewBox="0 0 250 150"><use href="#voix"/></svg></span></span> <span class="cw" style="--i:1">moi</span> <span class="cw" style="--i:2">c'est</span> <span class="cw dim" style="--i:3">Karen.</span></h2>
