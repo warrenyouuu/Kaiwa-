@@ -26,7 +26,7 @@
    stage where the Kaïwa wordmark plays the part of Apple's moving "AIR". */
 :root {
   --black: #000000;      /* hero and media stages */
-  --carbon: #0A0708;     /* page canvas */
+  --carbon: #000000;     /* page canvas: one black stage throughout */
   --antique: #E9E2DC;    /* type on dark, light tiles, footer band */
   --burgundy: #46001A;   /* calls to action, burgundy bays */
   --burgundy-deep: #2E0011;  /* hover on burgundy controls set on light tiles */
@@ -34,7 +34,7 @@
   --rosewood: #7E2847;   /* featured offer: a lighter burgundy (7.2:1 with Antique White) */
   --burgundy-pale: #E5D4DA;  /* a very light burgundy: the contact form */
   --blush: #FFEFE9;      /* the logo's pale colour: footer wordmark */
-  --pistache: #D9E46C;   /* the first site's rare accent: only the method dots */
+  --pistache: #E8A9BF;   /* rose accent for small dots and glows (was pistachio) */   /* the first site's rare accent: only the method dots */
   --ink: var(--antique);
   --ink-2: #A39597;      /* muted copy (7.3:1 on black, 5.7:1 on burgundy) */
   --line: rgb(233 226 220 / 0.14);
@@ -68,7 +68,7 @@ b, strong { font-weight: 600; }
 .muted { color: var(--ink-2); }
 
 /* type */
-.eyebrow { font: 600 0.8125rem/1.2 var(--font); letter-spacing: 0.02em; color: var(--ink-2); text-transform: uppercase; }
+.eyebrow { font: 500 0.9375rem/1.3 var(--font); color: var(--ink-2); }
 .h-sec { font: 800 clamp(2.5rem, 6vw, 5rem)/0.98 var(--font); letter-spacing: -0.045em; margin-top: 14px; }
 .dim, em.s { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
 .h-sec .dim { color: var(--ink-2); }
@@ -88,9 +88,8 @@ b, strong { font-weight: 600; }
 .btn-ghost { background: transparent; color: var(--ink); }
 .btn-ghost:hover { background: var(--fill-2); color: var(--ink); box-shadow: inset 0 0 0 1px var(--ring); }
 .link { display: inline-flex; align-items: center; gap: 4px; background: none; border: 0; padding: 0; cursor: pointer; font: 500 1.0625rem/1.3 var(--font); color: var(--ink); }
-.link::after { content: "›"; font-size: 1.25em; line-height: 0.8; transition: transform .3s var(--ease); }
-.link:hover { text-decoration: underline; text-underline-offset: 4px; }
-.link:hover::after { transform: translateX(3px); }
+.link { text-decoration: underline; text-decoration-color: rgb(233 226 220 / 0.35); text-underline-offset: 6px; transition: text-decoration-color .3s var(--ease); }
+.link:hover { text-decoration-color: currentColor; }
 .plus { position: relative; flex: none; width: 30px; height: 30px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px currentColor; transition: transform .4s var(--ease); }
 .plus::before, .plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 1.5px; background: currentColor; transform: translate(-50%, -50%); }
 .plus::after { transform: translate(-50%, -50%) rotate(90deg); }
@@ -259,7 +258,7 @@ html:not(.js) .say .w { color: var(--antique); }
 .rail figure { cursor: pointer; outline-offset: 4px; }
 .tile-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); opacity: 0; transition: opacity .5s var(--ease), transform 1s var(--ease); }
 .rail figure.playing .tile-vid { opacity: 1; }
-.tile-badge { position: absolute; left: 12px; top: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border-radius: 980px; background: rgb(0 0 0 / 0.55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: var(--antique); font: 600 0.6875rem/1 var(--font); letter-spacing: 0.08em; text-transform: uppercase; transition: opacity .4s; }
+.tile-badge { position: absolute; left: 12px; top: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border-radius: 980px; background: rgb(0 0 0 / 0.55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: var(--antique); font: 600 0.6875rem/1 var(--font);  transition: opacity .4s; }
 .tile-badge i { width: 0; height: 0; border-left: 7px solid currentColor; border-block: 4.5px solid transparent; }
 .rail figure.playing .tile-badge i { width: 7px; height: 7px; border: 0; border-radius: 50%; background: var(--pistache); animation: dotpulse 1s ease-in-out infinite; }
 .rail .tile img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); transition: transform 1s var(--ease); }
@@ -275,7 +274,7 @@ html:not(.js) .say .w { color: var(--antique); }
 .offer .offer-num { display: inline-block; transform: translateZ(calc(var(--h) * 60px)); }
 .offer-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .offer-num { font: 600 0.9375rem/1 var(--font); color: var(--ink-2); }
-.offer-tag { font: 600 0.75rem/1.2 var(--font); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2); }
+.offer-tag { font: 500 0.875rem/1.2 var(--font);  color: var(--ink-2); }
 .offer.feat .offer-tag { color: var(--antique); }
 .offer h3 { font: 800 clamp(1.6rem, 2.4vw, 2.25rem)/1.02 var(--font); letter-spacing: -0.035em; }
 .offer .kicker { font-weight: 500; }
@@ -283,15 +282,15 @@ html:not(.js) .say .w { color: var(--antique); }
 .offer hr { border: 0; border-top: 1px solid var(--line); margin: 8px 0; width: 100%; }
 .chip-btn { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 980px; box-shadow: inset 0 0 0 1.5px var(--ring); color: var(--ink); font: 500 0.875rem/1 var(--font); transition: transform .4s cubic-bezier(.3, 1.6, .5, 1), background-color .3s var(--ease), color .3s var(--ease), box-shadow .4s var(--ease); }
 .chip-btn::before { content: ""; width: 0; height: 7px; margin-right: 0; border-radius: 60% 40% 55% 45%; background: var(--pistache); transition: width .35s var(--ease), margin .35s var(--ease); }
-.chip-btn::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgb(217 228 108 / 0.55) 50%, transparent 70%); background-size: 260% 100%; background-position: 130% 0; transition: background-position .9s var(--ease); }
-.chip-btn:hover, .chip-btn:focus-visible { transform: translateY(-3px) scale(1.07); background: var(--antique); color: var(--burgundy); box-shadow: inset 0 0 0 1.5px var(--antique), 0 12px 28px rgb(217 228 108 / 0.3), 0 0 0 5px rgb(217 228 108 / 0.16); }
+.chip-btn::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgb(232 169 191 / 0.55) 50%, transparent 70%); background-size: 260% 100%; background-position: 130% 0; transition: background-position .9s var(--ease); }
+.chip-btn:hover, .chip-btn:focus-visible { transform: translateY(-3px) scale(1.07); background: var(--antique); color: var(--burgundy); box-shadow: inset 0 0 0 1.5px var(--antique), 0 12px 28px rgb(232 169 191 / 0.3), 0 0 0 5px rgb(232 169 191 / 0.16); }
 .chip-btn:hover::before, .chip-btn:focus-visible::before { width: 7px; margin-right: 8px; animation: dotpulse .9s ease-in-out infinite; }
 .chip-btn:hover::after, .chip-btn:focus-visible::after { background-position: -30% 0; }
 .chip-btn:active { transform: scale(0.95); }
 @keyframes dotpulse { 50% { transform: scale(1.7) rotate(40deg); } }
 /* when a card is hovered, its chips light up one after another */
 .offer:hover .chip-btn:not(:hover) { animation: chipwave 1.6s var(--ease) both; animation-delay: calc(var(--k, 0) * 90ms); }
-@keyframes chipwave { 0% { box-shadow: inset 0 0 0 1.5px var(--ring); } 25% { box-shadow: inset 0 0 0 1.5px var(--pistache), 0 0 18px rgb(217 228 108 / 0.45); color: var(--antique); } 100% { box-shadow: inset 0 0 0 1.5px var(--ring); } }
+@keyframes chipwave { 0% { box-shadow: inset 0 0 0 1.5px var(--ring); } 25% { box-shadow: inset 0 0 0 1.5px var(--pistache), 0 0 18px rgb(232 169 191 / 0.45); color: var(--antique); } 100% { box-shadow: inset 0 0 0 1.5px var(--ring); } }
 .fx { position: fixed; inset: 0; z-index: 70; pointer-events: none; }
 .offer-cta { justify-self: start; margin-top: 10px; }
 @media (max-width: 860px) { .offers { grid-template-columns: 1fr; } }
@@ -307,7 +306,7 @@ html:not(.js) .say .w { color: var(--antique); }
 .entry-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-top: 22px; color: var(--ink-2); }
 .entry-meta .ph { font: 400 1.5rem/1 var(--serif); font-style: italic; color: var(--ink); }
 .entry-meta .kanji { font-size: 1.25rem; color: var(--ink); letter-spacing: 0.08em; }
-.entry-meta .pos { font: 500 0.8125rem/1 var(--font); text-transform: uppercase; letter-spacing: 0.14em; }
+.entry-meta .pos { font: 500 0.8125rem/1 var(--font);  }
 .entry-defs { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 16px; counter-reset: d; max-width: 34em; }
 .entry-defs li { counter-increment: d; display: grid; grid-template-columns: 2.2em minmax(0, 1fr); font-size: clamp(1.0625rem, 1.4vw, 1.25rem); line-height: 1.45; }
 .entry-defs li::before { content: counter(d) "."; font: 400 1.5em/1 var(--serif); font-style: italic; color: var(--ink-2); }
@@ -334,7 +333,7 @@ html:not(.js) .story .w { color: var(--antique); }
 .window { display: grid; gap: 16px; align-content: start; padding: clamp(24px, 2.4vw, 32px); border-radius: var(--r); background: var(--wine); border: 1px solid rgb(233 226 220 / calc(0.12 + var(--h) * 0.3)); }
 .window-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
 .window-n { display: block; font: 800 clamp(3rem, 4.4vw, 4.25rem)/0.85 var(--font); letter-spacing: -0.06em; color: rgb(233 226 220 / calc(0.22 + var(--h) * 0.78)); transform: translateZ(calc(var(--h) * 60px)); transform-origin: left bottom; }
-.window-tag { font: 600 0.6875rem/1.3 var(--font); text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-2); text-align: right; max-width: 11em; }
+.window-tag { font: 500 0.8125rem/1.3 var(--font);  color: var(--ink-2); text-align: right; max-width: 11em; }
 .window h3 { font: 800 1.6rem/0.98 var(--font); letter-spacing: -0.035em; margin-top: 12px; transform: translateZ(calc(var(--h) * 44px)); }
 .window .kicker { font: 500 0.9375rem/1.35 var(--font); }
 .window .desc { color: var(--ink-2); font-size: 0.9375rem; }
@@ -446,6 +445,37 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
   .mobile-cta.hide { transform: translateY(150%); opacity: 0; pointer-events: none; }
   footer { padding-bottom: 110px; }
 }
+
+.skip { position: fixed; left: 16px; top: -64px; z-index: 100; padding: 10px 18px; border-radius: 980px; background: var(--antique); color: var(--burgundy); font-weight: 600; transition: top .2s; }
+.skip:focus { top: 12px; }
+/* ---------- the conversation: every chapter is an exchange between two voices ---------- */
+.talk { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 12px clamp(16px, 3vw, 40px); align-items: baseline; margin-bottom: clamp(48px, 7vw, 96px); max-width: 1120px; }
+.talk-solo { margin-bottom: clamp(32px, 4vw, 56px); }
+.talk-tight { margin-bottom: 0; grid-template-columns: 1fr; gap: 10px; }
+.talk-tight > .lede { grid-column: 1; }
+.talk-tight .ans { font-size: clamp(2.5rem, 5vw, 4.25rem); }
+.who { display: flex; align-items: center; gap: 10px; font: 500 0.9375rem/1.2 var(--font); color: var(--ink-2); }
+.who i { flex: none; width: 10px; height: 10px; border-radius: 60% 40% 55% 45%; }
+.who-you i { background: var(--blush); }
+.who-k i { background: var(--rosewood); box-shadow: 0 0 0 1.5px rgb(233 226 220 / 0.55); }
+.talk .who-k, .talk .who-k + .ans { margin-top: clamp(18px, 2.4vw, 32px); }
+.ask { font: 400 clamp(1.75rem, 3.4vw, 3rem)/1.12 var(--serif); font-style: italic; letter-spacing: -0.01em; color: var(--blush); max-width: 24ch; }
+.ans { font: 800 clamp(2.5rem, 6vw, 5.25rem)/0.98 var(--font); letter-spacing: -0.045em; max-width: 15ch; }
+.ans-s { font-size: clamp(2rem, 4.4vw, 3.75rem); }
+.talk > .lede, .talk-body { grid-column: 2; }
+.talk > .lede { margin-top: 10px; }
+.talk-body { display: grid; gap: 22px; justify-items: start; margin-top: 18px; max-width: 60ch; font-size: clamp(1.0625rem, 1.4vw, 1.25rem); color: var(--ink-2); }
+.ans .w { color: rgb(233 226 220 / 0.22); transition: color .35s linear; }
+.ans .w.lit { color: var(--antique); }
+html:not(.js) .ans .w { color: var(--antique); }
+.about-over .who { margin-bottom: 12px; }
+.entry .who { margin-bottom: 4px; }
+.faq summary { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.25rem, 1.9vw, 1.625rem); letter-spacing: -0.005em; color: var(--blush); }
+@media (max-width: 860px) {
+  .talk { grid-template-columns: 1fr; gap: 10px; }
+  .talk > .lede, .talk-body { grid-column: 1; }
+  .ask { max-width: none; }
+}
 </style>
 </head>
 <body>
@@ -459,6 +489,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
   
 </svg>
 
+<a class="skip" href="#studio">Aller au contenu</a>
 <header class="gnav">
   <nav class="wrap gnav-in" aria-label="Navigation principale">
     <a class="gnav-logo" href="#top" aria-label="Kaïwa, retour en haut"><svg viewBox="0 0 2334 740" aria-hidden="true"><use href="#kaiwa"/></svg></a>
@@ -484,7 +515,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
     <li style="--i:5"><a href="#faq">FAQ</a></li>
     <li style="--i:6"><a href="#contact">Contact</a></li>
   </ul>
-  <p>studiokaiiwa@gmail.com · +33 7 49 67 27 68</p>
+  <p>studiokaiiwa@gmail.com<br>+33 7 49 67 27 68</p>
 </div>
 
 <header class="hero" id="top">
@@ -507,50 +538,49 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
 </header>
 
 <main>
-  <section class="sec" id="studio" aria-label="Le studio">
+  <section class="sec" id="studio" aria-labelledby="say">
     <div class="wrap">
-      <div class="intro-grid">
-        <p class="say" id="say" data-say>Une identité n'est pas un décor. C'est la voix de votre marque.</p>
-        <div class="intro-side rv">
-          <p>Kaïwa Brand House est le studio de <b class="muted" style="color:var(--ink)">Karen Younes</b>, directrice artistique et brand designer. J'accompagne les marques qui veulent une identité forte, désirable et cohérente, du logo au packaging, en passant par le digital.</p>
-          <a class="link" href="#methode">Découvrir la méthode</a>
+      <div class="talk">
+        <p class="who who-you"><i aria-hidden="true"></i>Vous</p>
+        <p class="ask">«&nbsp;On a une belle idée. Mais personne ne nous reconnaît encore.&nbsp;»</p>
+        <p class="who who-k"><i aria-hidden="true"></i>Kaïwa</p>
+        <h2 class="ans" id="say" data-say>Alors donnons une voix à votre marque.</h2>
+        <div class="talk-body">
+          <p>Kaïwa Brand House est le studio de Karen Younes, directrice artistique et brand designer. Depuis 2023, depuis Montpellier et à distance partout, elle construit des identités complètes : logo, charte, packaging et digital, pour des marques de beauté, de mode, de fintech ou d'événementiel.</p>
+          <a class="link" href="#projets">Voir les projets</a>
         </div>
-      </div>
-      <div class="facts-row">
-        <div class="fact rv" style="--d:0"><b>2023</b><span>Création du studio</span></div>
-        <div class="fact rv" style="--d:1"><b>8</b><span>Signatures de marque présentées</span></div>
-        <div class="fact rv" style="--d:2"><b>4</b><span>Étapes, du premier appel à la livraison</span></div>
-        <div class="fact rv" style="--d:3"><b>100 %</b><span>À distance, depuis Montpellier</span></div>
       </div>
     </div>
   </section>
 
   <section class="sec sec-black" id="projets" aria-labelledby="projets-t">
     <div class="wrap">
-      <div class="sec-head rv">
-        <p class="eyebrow">Projets</p>
-        <h2 class="h-sec" id="projets-t">Trois marques. <span class="dim">Trois univers.</span></h2>
+      <div class="talk">
+        <p class="who who-you"><i aria-hidden="true"></i>Vous</p>
+        <p class="ask">«&nbsp;Vous l'avez déjà fait pour d'autres marques ?&nbsp;»</p>
+        <p class="who who-k"><i aria-hidden="true"></i>Kaïwa</p>
+        <h2 class="ans" id="projets-t">Oui. En voici trois.</h2>
       </div>
       <div class="proj">
-        <article class="ptile rv-zoom">
+        <article class="ptile">
           <div class="ptile-copy">
-            <div><p class="eyebrow">Beauté · Branding complet</p><h3 class="h-card">Yardena Make Up</h3><p class="lede">Faire désirer le produit avant même de l'essayer.</p></div>
+            <div><p class="eyebrow">Beauté, branding complet</p><h3 class="h-card">Yardena Make Up</h3><p class="lede">Faire désirer le produit avant même de l'essayer.</p></div>
             <span class="ptile-more">Voir le projet <span class="plus" aria-hidden="true"></span></span>
           </div>
           <div class="ptile-media fit"><img src="img/p-brandbook.jpg" width="1400" height="1050" alt="Brandbook et magazine Yardena Make Up" loading="lazy"></div>
           <button class="ptile-open" type="button" data-case="yardena" aria-label="Voir le projet Yardena Make Up"></button>
         </article>
-        <article class="ptile flip rv-zoom">
+        <article class="ptile flip">
           <div class="ptile-copy">
-            <div><p class="eyebrow">Fintech · Immobilier</p><h3 class="h-card">Trusteye</h3><p class="lede">Choisissez votre logement les yeux fermés.</p></div>
+            <div><p class="eyebrow">Fintech et immobilier</p><h3 class="h-card">Trusteye</h3><p class="lede">Choisissez votre logement les yeux fermés.</p></div>
             <span class="ptile-more">Voir le projet <span class="plus" aria-hidden="true"></span></span>
           </div>
           <div class="ptile-media fit"><img src="img/p-trusteye-duo.jpg" width="1400" height="1050" alt="Deux iPhone affichant l'application Trusteye" loading="lazy"></div>
           <button class="ptile-open" type="button" data-case="trusteye" aria-label="Voir le projet Trusteye"></button>
         </article>
-        <article class="ptile rv-zoom">
+        <article class="ptile">
           <div class="ptile-copy">
-            <div><p class="eyebrow">Automobile · Architecture de marque</p><h3 class="h-card">Orus Group</h3><p class="lede">Plusieurs activités, une seule signature.</p></div>
+            <div><p class="eyebrow">Automobile, architecture de marque</p><h3 class="h-card">Orus Group</h3><p class="lede">Plusieurs activités, une seule signature.</p></div>
             <span class="ptile-more">Voir le projet <span class="plus" aria-hidden="true"></span></span>
           </div>
           <div class="ptile-media"><img src="img/orus-mur.jpg" width="1800" height="1012" alt="Logo Orus Group en relief sur le mur d'une salle de réunion" loading="lazy"></div>
@@ -562,11 +592,12 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
 
   <section class="sec" id="packaging" aria-labelledby="pack-t" style="padding-top:clamp(64px,8vw,120px)">
     <div class="wrap">
-      <div class="sec-head rv">
-        <p class="eyebrow">Packaging</p>
-        <h2 class="h-sec" id="pack-t">De plus près. <span class="dim">Ce qu'on repère en rayon.</span></h2>
+      <div class="talk">
+        <p class="who who-k"><i aria-hidden="true"></i>Kaïwa</p>
+        <h2 class="ans ans-s" id="pack-t">Le packaging, de plus près.</h2>
+        <p class="lede">Choisissez un produit pour le voir en grand.</p>
       </div>
-      <div class="look rv">
+      <div class="look">
         <div>
           <div class="look-list" role="group" aria-label="Choisir un packaging">
             <button class="look-btn" type="button" aria-pressed="true" data-look="0"><span class="plus" aria-hidden="true"></span>Afro Mousse</button>
@@ -587,19 +618,21 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
   </section>
 
   <section class="sec sec-black" id="logos" aria-labelledby="logos-t">
-    <div class="wrap rail-head rv">
-      <div>
-        <p class="eyebrow">Logo design</p>
-        <h2 class="h-sec" id="logos-t">Des signatures <span class="dim">qui marquent.</span></h2>
-        <p class="lede" style="margin-top:20px">Un logo doit fonctionner partout : en favicon, sur une enseigne, brodé sur un tote bag. Chacun est livré avec ses déclinaisons.</p>
+    <div class="wrap rail-head">
+      <div class="talk">
+        <p class="who who-you"><i aria-hidden="true"></i>Vous</p>
+        <p class="ask">«&nbsp;Et si on a seulement besoin d'un logo ?&nbsp;»</p>
+        <p class="who who-k"><i aria-hidden="true"></i>Kaïwa</p>
+        <h2 class="ans" id="logos-t">C'est possible. Voici huit signatures.</h2>
+        <p class="lede">Un logo doit fonctionner partout : en favicon, sur une enseigne, brodé sur un tote bag. Chacun est livré avec ses déclinaisons. Survolez-les pour les voir bouger.</p>
       </div>
       <div class="rail-nav"><button type="button" id="railPrev" aria-label="Logos précédents">‹</button><button type="button" id="railNext" aria-label="Logos suivants">›</button></div>
     </div>
     <div class="rail" id="rail">
-      <figure class="rv" style="--d:0" tabindex="0"><div class="tile"><img src="img/logo-holysun.jpg" width="1000" height="563" alt="Logo Holysun Beach Store" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-holysun.mp4" type="video/mp4"><source src="video/logo-holysun.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Holysun<span>Beach store</span></figcaption></figure>
-      <figure class="rv" style="--d:1" tabindex="0"><div class="tile"><img src="img/logo-locawi.jpg" width="1000" height="563" alt="Logo Locawi" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-locawi.mp4" type="video/mp4"><source src="video/logo-locawi.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Locawi<span>Événementiel</span></figcaption></figure>
-      <figure class="rv" style="--d:2" tabindex="0"><div class="tile"><img src="img/logo-macrea.jpg" width="1000" height="563" alt="Logo et monogramme Ma Créa" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-macrea.mp4" type="video/mp4"><source src="video/logo-macrea.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Ma Créa<span>Monogramme</span></figcaption></figure>
-      <figure class="rv" style="--d:3" tabindex="0"><div class="tile"><img src="img/logo-nothings-permanent.jpg" width="1000" height="563" alt="Logo Nothing's Permanent" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-nothings-permanent.mp4" type="video/mp4"><source src="video/logo-nothings-permanent.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Nothing's Permanent<span>Mode</span></figcaption></figure>
+      <figure tabindex="0"><div class="tile"><img src="img/logo-holysun.jpg" width="1000" height="563" alt="Logo Holysun Beach Store" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-holysun.mp4" type="video/mp4"><source src="video/logo-holysun.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Holysun<span>Beach store</span></figcaption></figure>
+      <figure tabindex="0"><div class="tile"><img src="img/logo-locawi.jpg" width="1000" height="563" alt="Logo Locawi" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-locawi.mp4" type="video/mp4"><source src="video/logo-locawi.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Locawi<span>Événementiel</span></figcaption></figure>
+      <figure tabindex="0"><div class="tile"><img src="img/logo-macrea.jpg" width="1000" height="563" alt="Logo et monogramme Ma Créa" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-macrea.mp4" type="video/mp4"><source src="video/logo-macrea.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Ma Créa<span>Monogramme</span></figcaption></figure>
+      <figure tabindex="0"><div class="tile"><img src="img/logo-nothings-permanent.jpg" width="1000" height="563" alt="Logo Nothing's Permanent" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-nothings-permanent.mp4" type="video/mp4"><source src="video/logo-nothings-permanent.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Nothing's Permanent<span>Mode</span></figcaption></figure>
       <figure tabindex="0"><div class="tile"><img src="img/logo-luciana.jpg" width="1000" height="563" alt="Logotype Luciana" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-luciana.mp4" type="video/mp4"><source src="video/logo-luciana.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Luciana<span>Logotype</span></figcaption></figure>
       <figure tabindex="0"><div class="tile"><img src="img/logo-nomad.jpg" width="1000" height="563" alt="Logo Nomad Longchamp Paris" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-nomad.mp4" type="video/mp4"><source src="video/logo-nomad.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Nomad<span>Paris</span></figcaption></figure>
       <figure tabindex="0"><div class="tile"><img src="img/logo-yardena.jpg" width="1000" height="563" alt="Logo et monogramme Yardena Make Up" loading="lazy"><video class="tile-vid" muted loop playsinline preload="none" aria-hidden="true"><source src="video/logo-yardena.mp4" type="video/mp4"><source src="video/logo-yardena.webm" type="video/webm"></video><span class="tile-badge"><i></i>Motion</span></div><figcaption>Yardena<span>Beauté</span></figcaption></figure>
@@ -609,14 +642,16 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
 
   <section class="sec sec-burgundy" id="offres" aria-labelledby="offres-t">
     <div class="wrap">
-      <div class="sec-head rv">
-        <p class="eyebrow">Accompagnement</p>
-        <h2 class="h-sec" id="offres-t">Quatre points de départ. <span class="dim">Une marque qui vous ressemble.</span></h2>
-        <p class="lede">Chaque projet est chiffré selon son périmètre : <b>vous choisissez le point de départ,</b> on ajuste ensuite.</p>
+      <div class="talk">
+        <p class="who who-you"><i aria-hidden="true"></i>Vous</p>
+        <p class="ask">«&nbsp;Par où on commence ?&nbsp;»</p>
+        <p class="who who-k"><i aria-hidden="true"></i>Kaïwa</p>
+        <h2 class="ans" id="offres-t">Choisissez votre point de départ.</h2>
+        <p class="lede">Chaque projet est chiffré selon son périmètre. Vous choisissez une base, on l'ajuste ensemble.</p>
       </div>
       <div class="offers tgroup">
         <div class="tcell" style="--d:0"><article class="offer tilt">
-          <div class="offer-top"><span class="offer-num">01</span><span class="offer-tag">Poser les bases</span></div>
+          <div class="offer-top"><span class="offer-tag">Poser les bases</span></div>
           <h3>Logo &amp; identité essentielle</h3>
           <p class="kicker">Pour lancer une marque</p>
           <p class="desc">Des fondations solides pour démarrer avec une image claire et cohérente.</p>
@@ -625,7 +660,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
           <a class="btn offer-cta" href="#contact" data-pick="Logo">Demander un devis</a>
         </article></div>
         <div class="tcell" style="--d:1"><article class="offer feat tilt">
-          <div class="offer-top"><span class="offer-num">02</span><span class="offer-tag">Offre recommandée</span></div>
+          <div class="offer-top"><span class="offer-tag">Offre recommandée</span></div>
           <h3>Identité de marque complète</h3>
           <p class="kicker">Pour une marque cohérente partout</p>
           <p class="desc">Du positionnement à la charte, un système complet qui tient sur tous les supports.</p>
@@ -634,7 +669,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
           <a class="btn offer-cta" href="#contact" data-pick="Identité complète">Demander un devis</a>
         </article></div>
         <div class="tcell" style="--d:0"><article class="offer tilt">
-          <div class="offer-top"><span class="offer-num">03</span><span class="offer-tag">Donner corps au produit</span></div>
+          <div class="offer-top"><span class="offer-tag">Donner corps au produit</span></div>
           <h3>Packaging</h3>
           <p class="kicker">Pour un produit qu'on remarque</p>
           <p class="desc">Un packaging qu'on repère en rayon, qu'on photographie et qu'on garde.</p>
@@ -643,7 +678,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
           <a class="btn offer-cta" href="#contact" data-pick="Packaging">Demander un devis</a>
         </article></div>
         <div class="tcell" style="--d:1"><article class="offer tilt">
-          <div class="offer-top"><span class="offer-num">04</span><span class="offer-tag">Activer la marque</span></div>
+          <div class="offer-top"><span class="offer-tag">Activer la marque</span></div>
           <h3>Digital &amp; social</h3>
           <p class="kicker">Pour une présence en ligne à la hauteur</p>
           <p class="desc">Un site et des contenus qui prolongent l'identité, écran après écran.</p>
@@ -657,11 +692,15 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
 
   <section class="sec" id="methode" aria-labelledby="methode-t">
     <div class="wrap">
+      <div class="talk talk-solo">
+        <p class="who who-you"><i aria-hidden="true"></i>Vous</p>
+        <p class="ask">«&nbsp;Et Kaïwa, ça veut dire quoi ?&nbsp;»</p>
+      </div>
       <div class="entry">
-        <div class="rv">
-          <p class="eyebrow">Méthode</p>
+        <div>
+          <p class="who who-k"><i aria-hidden="true"></i>Kaïwa</p>
           <div class="entry-word"><h2 id="methode-t">Kaïwa</h2><svg viewBox="0 0 250 150" aria-hidden="true"><use href="#voix"/></svg></div>
-          <p class="entry-meta"><span class="ph">[ka.i.wa]</span><span class="kanji" lang="ja">会話</span><span class="pos">nom · du japonais</span></p>
+          <p class="entry-meta"><span class="ph">[ka.i.wa]</span><span class="kanji" lang="ja">会話</span><span class="pos">nom, du japonais</span></p>
           <ol class="entry-defs">
             <li><span><em>Conversation.</em> Échange de paroles entre deux voix qui s'écoutent.</span></li>
             <li><span><em>Chez nous :</em> la méthode qui donne une voix à une marque, puis la laisse parler seule.</span></li>
@@ -712,22 +751,26 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
 
   <section class="sec sec-black" id="apropos" aria-labelledby="apropos-t">
     <div class="wrap">
+      <div class="talk talk-solo">
+        <p class="who who-you"><i aria-hidden="true"></i>Vous</p>
+        <p class="ask">«&nbsp;Et qui est derrière tout ça ?&nbsp;»</p>
+      </div>
       <div class="about-wrap rv-zoom">
         <div class="about-tile tilt" data-amp="0.45">
           <span class="about-ghost" aria-hidden="true">Karen</span>
           <img class="about-photo" src="img/karen-portrait.jpg" width="1200" height="1600" alt="Portrait de Karen Younes, lunettes écaille et grande écharpe" loading="lazy">
           <div class="about-over">
-            <p class="eyebrow">À propos</p>
+            <p class="who who-k"><i aria-hidden="true"></i>Karen</p>
             <h2 class="h-sec" id="apropos-t"><span class="hello-line"><span class="cw" style="--i:0">Hello,</span><span class="hello-dots" aria-hidden="true"><svg viewBox="0 0 250 150"><use href="#voix"/></svg></span></span> <span class="cw" style="--i:1">moi</span> <span class="cw" style="--i:2">c'est</span> <span class="cw dim" style="--i:3">Karen.</span></h2>
           </div>
         </div>
       </div>
       <div class="about-grid">
-        <div class="rv">
+        <div>
           <p class="lede" style="color:var(--ink)">Directrice artistique et designer graphique, spécialisée dans les identités de marque.</p>
           <p class="muted" style="margin-top:18px">J'aime construire des univers visuels qui ont une vraie personnalité : de l'identité graphique au packaging, en passant par les campagnes, le digital et les réseaux sociaux. Mon approche mêle stratégie, direction artistique et design pour créer des marques cohérentes, reconnaissables et capables d'évoluer sur tous leurs supports.</p>
         </div>
-        <div class="rv" style="--d:1">
+        <div>
           <h3>Pourquoi Kaïwa ?</h3>
           <p class="muted">Une marque forte commence par une bonne conversation : la vôtre avec vos clients, et la nôtre pendant le projet. Les deux points du ï, ce sont ces deux voix.</p>
           <div class="chips" style="margin-top:24px"><span class="chip">Direction artistique</span><span class="chip">Branding</span><span class="chip">Identité visuelle</span><span class="chip">Design éditorial</span><span class="chip">Packaging</span><span class="chip">Webdesign</span><span class="chip">Social media</span></div>
@@ -738,11 +781,13 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
 
   <section class="sec" id="faq" aria-labelledby="faq-t">
     <div class="wrap">
-      <div class="sec-head rv">
-        <p class="eyebrow">Questions fréquentes</p>
-        <h2 class="h-sec" id="faq-t">Avant de <span class="dim">se lancer.</span></h2>
+      <div class="talk">
+        <p class="who who-you"><i aria-hidden="true"></i>Vous</p>
+        <p class="ask">«&nbsp;J'ai encore quelques questions.&nbsp;»</p>
+        <p class="who who-k"><i aria-hidden="true"></i>Kaïwa</p>
+        <h2 class="ans" id="faq-t">Voici les réponses aux plus fréquentes.</h2>
       </div>
-      <div class="faq rv">
+      <div class="faq">
         <details><summary><span class="plus" aria-hidden="true"></span>Travaillez-vous à distance ?</summary><p>Oui, en full remote depuis Montpellier. Les échanges se font en visio, par téléphone et par e-mail, où que vous soyez.</p></details>
         <details><summary><span class="plus" aria-hidden="true"></span>Combien coûte une identité de marque ?</summary><p>Le prix dépend du périmètre : un logo seul et une identité complète avec packaging ne demandent pas le même travail. Décrivez votre projet dans le formulaire : vous recevez un devis détaillé, poste par poste.</p></details>
         <details><summary><span class="plus" aria-hidden="true"></span>Combien de temps dure un projet ?</summary><p>Cela dépend de l'ampleur du projet et de vos délais. Le planning est fixé ensemble dès le premier échange, avec une date pour chaque étape.</p></details>
@@ -754,17 +799,21 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
 
   <section class="sec sec-burgundy" id="contact" aria-labelledby="contact-t">
     <div class="wrap contact-grid">
-      <div class="rv">
-        <p class="eyebrow">Contact</p>
-        <h2 class="h-sec" id="contact-t">Parlons de <span class="dim">votre marque.</span></h2>
-        <p class="lede" style="margin-top:20px">Quelques infos sur votre projet, <b>et je reviens vers vous</b> pour en discuter.</p>
+      <div>
+        <div class="talk talk-tight">
+          <p class="who who-you"><i aria-hidden="true"></i>Vous</p>
+          <p class="ask">«&nbsp;On en parle ?&nbsp;»</p>
+          <p class="who who-k"><i aria-hidden="true"></i>Kaïwa</p>
+          <h2 class="ans" id="contact-t">À vous la parole.</h2>
+          <p class="lede">Quelques infos sur votre projet, et Karen revient vers vous pour en discuter.</p>
+        </div>
         <dl class="direct">
           <div><dt>E-mail</dt><dd>studiokaiiwa@gmail.com</dd></div>
           <div><dt>Téléphone</dt><dd>+33 7 49 67 27 68</dd></div>
-          <div><dt>Basée à</dt><dd>Montpellier · full remote</dd></div>
+          <div><dt>Basée à</dt><dd>Montpellier, à distance partout</dd></div>
         </dl>
       </div>
-      <form class="brief light rv" style="--d:1" id="brief" name="brief" novalidate>
+      <form class="brief light" id="brief" name="brief" novalidate>
         <p hidden><label>Ne pas remplir <input name="_honey" id="f-honey" tabindex="-1" autocomplete="off"></label></p>
         <div id="formFields" style="display:grid;gap:24px">
           <div class="row2">
@@ -828,7 +877,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
   <div class="wrap">
     <svg class="foot-logo" viewBox="0 0 2374 890" role="img" aria-label="Kaïwa Brand House, since 2023"><use href="#kaiwa-sig"/></svg>
     <div class="foot-row">
-      <span>© 2026 Kaïwa Brand House · Karen Younes</span>
+      <span>© 2026 Kaïwa Brand House, Karen Younes</span>
       <nav aria-label="Pied de page"><a href="#projets">Projets</a><a href="#offres">Accompagnement</a><a href="#methode">Méthode</a><a href="#apropos">À propos</a><a href="#contact">Contact</a></nav>
       <span>Montpellier, France</span>
     </div>
@@ -968,7 +1017,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
   $$('.offer').forEach(o => o.querySelectorAll('.chip-btn').forEach((c, k) => c.style.setProperty('--k', k)));
   const fx = document.createElement('canvas'); fx.className = 'fx'; fx.setAttribute('aria-hidden', 'true'); document.body.append(fx);
   const ctx = fx.getContext('2d'); let parts = [], fxOn = false;
-  const COLORS = ['#D9E46C', '#E9E2DC', '#F3F7B8', '#C9A0AE'];
+  const COLORS = ['#E8A9BF', '#E9E2DC', '#FFEFE9', '#C9A0AE'];
   const sizeFx = () => { const d = Math.min(2, devicePixelRatio || 1); fx.width = innerWidth * d; fx.height = innerHeight * d; ctx.setTransform(d, 0, 0, d, 0, 0); };
   sizeFx(); addEventListener('resize', sizeFx);
   const star = (x, y, r, a) => { ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.beginPath(); for (let i = 0; i < 4; i++) { ctx.rotate(Math.PI / 2); ctx.quadraticCurveTo(r * 0.12, r * 0.12, 0, r); ctx.quadraticCurveTo(-r * 0.12, r * 0.12, 0, 0); } ctx.fill(); ctx.restore(); };
@@ -1059,7 +1108,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
   // case studies
   const CASES = {
     yardena: {
-      eyebrow: '[ Beauté · Branding complet ]', title: 'Yardena Make Up',
+      eyebrow: 'Beauté, branding complet', title: 'Yardena Make Up',
       lead: 'Faire désirer le produit avant même de l\'essayer.',
       text: 'Pour Yardena, le maquillage est une expérience sensorielle avant d\'être un geste beauté. J\'ai construit l\'univers « Textures gourmandes » : des visuels macro où les pigments débordent, où les gloss brillent et où les poudres s\'effritent. Un rose intense, une typographie à empattements affirmée et un monogramme YD donnent à la marque une signature reconnaissable, du packaging au feed Instagram.',
       mission: 'Direction artistique et développement de l\'univers de marque',
@@ -1067,7 +1116,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
       imgs: [['p-brandbook', 'Brandbook et magazine Yardena'], ['yardena-site', 'Page d\'accueil du site e-commerce Yardena'], ['yardena-social', 'Publications Afro Mousse pour les réseaux sociaux'], ['p-yardena-mobile', 'Site mobile Yardena sur iPhone']]
     },
     trusteye: {
-      eyebrow: '[ Fintech · Immobilier ]', title: 'Trusteye',
+      eyebrow: 'Fintech et immobilier', title: 'Trusteye',
       lead: 'Choisissez votre logement les yeux fermés.',
       text: 'Trusteye fait visiter des logements à distance : tout repose sur la confiance. Le logo intègre un œil dans le y, et un bleu nuit pose une base rassurante. Deux parcours couleur structurent l\'expérience : le bleu pour l\'accompagnement du client, l\'orange pour l\'action des Trusty sur le terrain.',
       mission: 'Direction artistique et identité visuelle',
@@ -1075,7 +1124,7 @@ dialog.cs::backdrop { background: rgb(0 0 0 / 0.7); -webkit-backdrop-filter: blu
       imgs: [['p-trusteye-duo2', 'Deux écrans de l\'application Trusteye'], ['trusteye-affiche', 'Affiche Trusteye dans un hall'], ['trusteye-social', 'Grille de publications Trusteye'], ['trusteye-main', 'iPhone avec l\'icône Trusteye']]
     },
     orus: {
-      eyebrow: '[ Automobile · Architecture de marque ]', title: 'Orus Group',
+      eyebrow: 'Automobile, architecture de marque', title: 'Orus Group',
       lead: 'Plusieurs activités, une seule signature.',
       text: 'Orus Group réunit plusieurs univers sous un même nom. J\'ai créé un monogramme fort, noir et or, et une architecture de marque qui permet de décliner des sous-marques, comme Orus Horizon en Martinique, sans perdre l\'unité du groupe. L\'identité vit aussi bien sur une enseigne que sur un badge ou un écran.',
       mission: 'Identité de marque et architecture de marque',
